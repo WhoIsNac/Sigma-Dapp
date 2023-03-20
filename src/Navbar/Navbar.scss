@@ -1,0 +1,283 @@
+.header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 58px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 30px;
+    white-space: nowrap;
+    z-index: 0;
+
+    @media screen and (max-width: 1400px) {justify-content: space-between;}
+    @media screen and (max-width: 768px) {padding: 0;}
+
+    & + .header {
+        @media screen and (max-width: 768px) {
+            display: inline-block;
+            padding: 0;
+            overflow-x: scroll;
+            overflow-y: inherit;
+        }
+    }
+
+    &-menu {
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 1400px) {
+            margin-inline: auto;
+        }
+
+        a {
+            font-weight: 700;
+            padding: 20px 40px;
+            text-decoration: none;
+            color: var(--inactive-color);
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+
+            @media screen and (max-width: 1800px) {padding: 20px 30px;}
+            @media screen and (max-width: 1650px) {padding: 20px 25px;}
+            @media screen and (max-width: 1600px) {padding: 20px 20px;}
+            @media screen and (max-width: 1500px) {padding: 20px 20px; font-size: 13px;}
+            @media screen and (max-width: 1400px) {padding: 20px 50px;}
+            @media screen and (max-width: 1100px) {padding: 20px 40px;}
+            @media screen and (max-width: 950px) {padding: 20px 30px;}
+            @media screen and (max-width: 768px) {font-size: 12px;}
+
+            &.is-active,
+            &:hover {
+                color: var(--theme-color);
+                border-bottom: 2px solid var(--theme-color);
+            }
+        }
+    }
+}
+
+.header-menu-interaction {
+    display: flex;
+    align-items: center;
+    padding: 0 16px 0 40px;
+    margin-left: auto;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 400px) {padding: 0;}
+}
+
+.header-logo {
+    width: 150px;
+    margin-right: 45px;
+    margin-left: 15px;
+    height: auto;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 768px) {width: auto; height: 50px;}
+}
+
+.notify {
+    position: relative;
+
+    &:before {
+        content: "SOON";
+        position: absolute;
+        color: #1deaff;
+        width: 6px;
+        font-size: 10px;
+        height: 6px;
+        right: 15px;
+        top: -10px;
+    }
+
+    
+}
+
+.notify-testnet {
+    position: relative;
+
+    &:before {
+        content: "TESTNET";
+        position: absolute;
+        color: #1deaff;
+        font-size: 10px;
+        width: 6px;
+        height: 6px;
+        right: 15px;
+        top: -10px;
+    }
+
+    
+}
+
+.navbar-dapp-control {
+    opacity: 0;
+    display: flex;
+    transition: ease 2s;
+
+    &.hasWallet {
+        opacity: 1;
+        transition: ease 2s;
+
+        a {
+            cursor: pointer;
+        }
+    }
+
+    a {
+        cursor: unset;
+    }
+}
+
+.wallet-button {
+    background: rgb(0,195,255);
+    border: none;
+    padding: 8px 26px;
+    color: #00222b;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+    font-family: inherit;
+    font-weight: 800;
+    z-index: 1;
+
+    @media screen and (max-width: 1500px) and (min-width: 1400px) {font-size: 12px;}
+    @media screen and (max-width: 768px) {font-size: 12px;}
+    @media screen and (max-width: 500px) {display: none;}
+
+    &_token {
+        background: rgb(0,157,193);
+        background: linear-gradient(90deg, rgba(0,157,193,1) 0%, rgba(0,7,22,1) 100%);
+        border: none;
+        padding: 8px 26px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        white-space: nowrap;
+        font-family: inherit;
+        font-weight: 500;
+        margin-left: 10px;
+        transform: translateX(15px);
+        z-index: 0;
+        cursor: unset;
+
+        @media screen and (max-width: 1600px) {font-size: 12px;}
+        @media screen and (max-width: 768px) {font-size: 12px;}
+    }
+}
+
+.wallet-button:not(.open):hover {
+    background: var(--loaded-blue-select);
+}
+
+.selected {
+    color: var(--theme-color) !important;
+    border-bottom: 2px solid var(--theme-color) !important;
+}
+
+.test-btn {
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 800;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    margin-right: 10%;
+    background: linear-gradient(90deg, var(--loaded-blue) 0%, var(--loaded-blue-select) 100%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+    &_mobile {
+        width: 40px;
+        height: 30px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-weight: 800;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        outline: none;
+        margin-right: 10%;
+        background: linear-gradient(90deg, var(--loaded-blue) 0%, var(--loaded-blue-select) 100%);
+        line-height: 42px;
+        padding: 0;
+        border: none;
+    }
+}
+
+.test-btn span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.test-btn:before,
+.test-btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: var(--loaded-blue);
+    transition: all 0.3s ease;
+}
+.test-btn:before{
+    height: 0%;
+    width: 2px;
+}
+.test-btn:after {
+    width: 0%;
+    height: 2px;
+}
+.test-btn:hover{
+    color: var(--loaded-blue);
+    background: transparent;
+}
+.test-btn:hover:before {
+    height: 100%;
+}
+.test-btn:hover:after {
+    width: 100%;
+}
+.test-btn span:before,
+.test-btn span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: var(--loaded-blue);
+    transition: all 0.3s ease;
+}
+.test-btn span:before {
+    width: 2px;
+    height: 0%;
+}
+.test-btn span:after {
+    height: 2px;
+    width: 0%;
+}
+.test-btn span:hover:before {
+    height: 100%;
+}
+.test-btn span:hover:after {
+    width: 100%;
+}
+
+.header-mobile-menu {
+    width: 50px;
+}
+
+.header-menu-img {
+    height: 100%;
+    margin: auto;
+}
